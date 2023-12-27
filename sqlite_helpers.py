@@ -3,13 +3,6 @@ from datetime import datetime
 
 
 # Creating table
-
-
-print("Table is Ready")
-
-# Close the connection
-
-
 def create_table(db):
     conn = sqlite3.connect(db)
     cursor = conn.cursor()
