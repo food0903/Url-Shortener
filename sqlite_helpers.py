@@ -1,8 +1,9 @@
 import sqlite3
 from datetime import datetime
 
-
 # Creating table
+
+
 def create_table(db):
     conn = sqlite3.connect(db)
     cursor = conn.cursor()
@@ -82,4 +83,7 @@ def get_url_by_alias(alias, db):
 
     conn.close()
 
-    return url_record
+    if url_record is not None:
+        return url_record
+    else:
+        return None
