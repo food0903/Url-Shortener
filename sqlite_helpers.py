@@ -1,24 +1,30 @@
 import sqlite3
 from datetime import datetime
 
-connection_obj = sqlite3.connect('url.db')
-cursor_obj = connection_obj.cursor()
-
 
 # Creating table
-table = """ CREATE TABLE IF NOT EXISTS URLTable (
-            id INTEGER NOT NULL PRIMARY KEY,
-            URL VARCHAR(255) NOT NULL,
-            Alias VARCHAR(25) NOT NULL UNIQUE,
-            timestamp TIMESTAMP
-        ); """
 
-cursor_obj.execute(table)
 
 print("Table is Ready")
 
 # Close the connection
-connection_obj.close()
+
+
+def create_table(db):
+    conn = sqlite3.connect(db)
+    cursor = conn.cursor()
+
+    table_query = """
+    CREATE TABLE IF NOT EXISTS URLTable (
+        id INTEGER NOT NULL PRIMARY KEY,
+        URL VARCHAR(255) NOT NULL,
+        Alias VARCHAR(25) NOT NULL UNIQUE,
+        timestamp TIMESTAMP
+    ); """
+
+    cursor.execute(table_query)
+    conn.commit()
+    conn.close()
 
 
 # insert url and their alias into the table

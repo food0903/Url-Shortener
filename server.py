@@ -3,9 +3,10 @@ from fastapi import FastAPI
 import uvicorn
 from sqlite_helpers import *
 
-
-app = FastAPI()
 DATABASE = 'url.db'
+app = FastAPI()
+
+create_table(DATABASE)
 
 
 @app.get("/")
