@@ -88,6 +88,3 @@ def get_url_by_alias(alias):
     conn.close()
 
     return url_record
-
-
-print(list_all_urls())
