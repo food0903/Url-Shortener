@@ -25,7 +25,7 @@ def get_all_urls():
 def alias_url(alias):
     url_data = get_url_by_alias(alias, DATABASE)
     if url_data is not None:
-        return RedirectResponse(url=url_data[1])
+        return RedirectResponse(url_data)
     elif url_data is None:
         raise HTTPException(status_code=404, detail="Alias not found")
 

@@ -76,7 +76,7 @@ def get_url_by_alias(alias, db):
     conn = sqlite3.connect(db)
     cursor = conn.cursor()
 
-    query = ''' SELECT * FROM URLTable WHERE Alias = ? '''
+    query = ''' SELECT URL FROM URLTable WHERE Alias = ? '''
     cursor.execute(query, (alias,))
 
     url_record = cursor.fetchone()
@@ -84,6 +84,6 @@ def get_url_by_alias(alias, db):
     conn.close()
 
     if url_record is not None:
-        return url_record
+        return url_record[0]
     else:
         return None
