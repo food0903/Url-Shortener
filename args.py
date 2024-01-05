@@ -1,11 +1,5 @@
 import argparse
 import time
-from args import get_args
-
-args = get_args()
-database_path = args.db
-host = args.host
-port = args.port
 
 
 def get_args():
