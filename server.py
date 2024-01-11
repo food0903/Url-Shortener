@@ -3,9 +3,13 @@ from fastapi import FastAPI, HTTPException
 import uvicorn
 from sqlite_helpers import *
 from starlette.responses import RedirectResponse
+from args import get_args
 
+args = get_args()
 
-DATABASE = 'url.db'
+DATABASE = args.db
+host = args.host
+port = args.port
 app = FastAPI()
 
 create_table(DATABASE)
@@ -41,4 +45,4 @@ def add_url(alias):
 
 
 if __name__ == "__main__":
-    uvicorn.run("server:app", port=8000, reload=True)
+    uvicorn.run("server:app", host=host, port=port, reload=True)

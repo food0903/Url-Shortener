@@ -23,6 +23,6 @@ def get_args():
         "--port",
         help="Port number for the server",
         type=int,
-        default=8000
+        default=8080
     )
     return parser.parse_args()
