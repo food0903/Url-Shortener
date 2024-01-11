@@ -5,11 +5,10 @@ from sqlite_helpers import *
 from starlette.responses import RedirectResponse
 from args import get_args
 
-args = get_args()
 
-DATABASE = args.db
-host = args.host
-port = args.port
+DATABASE = get_args().db
+host = get_args().host
+port = get_args().port
 app = FastAPI()
 
 create_table(DATABASE)
